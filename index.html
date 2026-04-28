@@ -3,12 +3,25 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#000000" />
+  <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#f6f6f4" media="(prefers-color-scheme: light)" />
   <title>Adrien Scazzola — Research · Operate · Shape</title>
   <meta name="description" content="Adrien Scazzola — MSc CS & Cybersecurity. AI security, Web3, robotics. Tech builder turning ideas into impact." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="./styles.css" />
+  <script>
+    // Apply saved theme before paint to avoid FOUC
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (!t) {
+          t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        }
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
 
@@ -18,6 +31,19 @@
     <span class="blob blob-2"></span>
     <span class="blob blob-3"></span>
     <div class="grain"></div>
+  </div>
+
+  <!-- Spline 3D animated background (top of the page) -->
+  <div class="spline-bg" aria-hidden="true">
+    <iframe
+      src="https://my.spline.design/retrofuturismbganimation-Lb3VtL1bNaYUnirKNzn0FvaW"
+      title="3D animated background"
+      loading="lazy"
+      frameborder="0"></iframe>
+  </div>
+  <!-- Layered backdrop-filter blur fading in at the bottom of the spline area -->
+  <div class="gradient-blur" aria-hidden="true">
+    <div></div><div></div><div></div><div></div><div></div><div></div>
   </div>
 
   <!-- Glassmorphic top nav -->
@@ -37,25 +63,15 @@
       <span>Contact</span>
       <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" title="Toggle theme">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+    </button>
   </header>
 
   <!-- =================== HERO / OVERVIEW (one-glance) =================== -->
   <main id="top">
     <section class="hero hero-with-video">
-
-      <!-- Full-bleed background video — plays once, freezes on last frame -->
-      <video
-        id="heroVideo"
-        class="hero-bg-video"
-        muted
-        playsinline
-        autoplay
-        preload="auto"
-        aria-hidden="true"
-      >
-        <source src="./assets/hero.mp4" type="video/mp4" />
-      </video>
-      <div class="hero-bg-overlay" aria-hidden="true"></div>
 
       <div class="hero-text">
         <div class="hero-meta" data-reveal>
@@ -68,9 +84,9 @@
             <span class="g-word" style="--i:0">Hi,</span>
             <span class="g-word" style="--i:1">I&rsquo;m</span>
           </span>
-          <span class="g-line g-name">
+          <span class="g-line g-name g-gradient">
             <span class="g-word" style="--i:2">Adrien</span>
-            <span class="g-word g-italic" style="--i:3">Scazzola.</span>
+            <span class="g-word" style="--i:3">Scazzola.</span>
           </span>
           <span class="g-cursor" aria-hidden="true"></span>
         </h1>

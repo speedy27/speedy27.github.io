@@ -13,33 +13,26 @@
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  /* ---------- Hero video: play once, freeze on last frame ---------- */
-  const heroVid = document.getElementById('heroVideo');
-  if (heroVid) {
-    // Try to autoplay (muted). Some browsers block until user interaction.
-    const tryPlay = () => heroVid.play().catch(() => { /* ignored */ });
-    tryPlay();
-    // Freeze on last frame: pause exactly at the final frame so it doesn't
-    // flash to black or rewind on some browsers.
-    heroVid.addEventListener('ended', () => {
-      heroVid.pause();
-      // Nudge slightly back from the very end to keep the picture rendered.
-      try {
-        if (Number.isFinite(heroVid.duration)) {
-          heroVid.currentTime = Math.max(0, heroVid.duration - 0.05);
-        }
-      } catch (_) { /* noop */ }
+  /* ---------- Theme toggle (light / dark) ---------- */
+  const themeBtn = document.getElementById('themeToggle');
+  if (themeBtn) {
+    themeBtn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (_) {}
     });
-    // If autoplay was blocked, start on first user interaction.
-    const resume = () => {
-      if (heroVid.paused && heroVid.currentTime === 0) tryPlay();
-      window.removeEventListener('pointerdown', resume);
-      window.removeEventListener('keydown', resume);
-      window.removeEventListener('scroll', resume);
+  }
+
+  /* ---------- Aurora: hidden during the hero, fades in after ---------- */
+  const aurora = document.querySelector('.aurora');
+  if (aurora) {
+    const onScrollAurora = () => {
+      const past = window.scrollY > window.innerHeight * 0.6;
+      aurora.classList.toggle('is-active', past);
     };
-    window.addEventListener('pointerdown', resume, { passive: true });
-    window.addEventListener('keydown', resume);
-    window.addEventListener('scroll', resume, { passive: true });
+    window.addEventListener('scroll', onScrollAurora, { passive: true });
+    onScrollAurora();
   }
 
   /* ---------- Reveal on scroll ---------- */
