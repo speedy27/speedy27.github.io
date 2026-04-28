@@ -26,14 +26,13 @@
 
   /* ---------- Aurora: hidden during the hero, fades in after ---------- */
   const aurora = document.querySelector('.aurora');
-  if (aurora) {
-    const onScrollAurora = () => {
-      const past = window.scrollY > window.innerHeight * 0.6;
-      aurora.classList.toggle('is-active', past);
-    };
-    window.addEventListener('scroll', onScrollAurora, { passive: true });
-    onScrollAurora();
-  }
+  const onScrollAurora = () => {
+    const past = window.scrollY > window.innerHeight * 0.6;
+    if (aurora) aurora.classList.toggle('is-active', past);
+    document.body.classList.toggle('scrolled', past);
+  };
+  window.addEventListener('scroll', onScrollAurora, { passive: true });
+  onScrollAurora();
 
   /* ---------- Reveal on scroll ---------- */
   const revealEls = document.querySelectorAll('[data-reveal]');

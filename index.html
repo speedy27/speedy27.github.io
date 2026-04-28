@@ -11,16 +11,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="./styles.css" />
   <script>
-    // Apply saved theme before paint to avoid FOUC
-    (function () {
-      try {
-        var t = localStorage.getItem('theme');
-        if (!t) {
-          t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-        }
-        document.documentElement.setAttribute('data-theme', t);
-      } catch (e) {}
-    })();
+    // Force dark theme (light-mode toggle is currently disabled)
+    document.documentElement.setAttribute('data-theme', 'dark');
   </script>
 </head>
 <body>
@@ -63,10 +55,6 @@
       <span>Contact</span>
       <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
-    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" title="Toggle theme">
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-    </button>
   </header>
 
   <!-- =================== HERO / OVERVIEW (one-glance) =================== -->
@@ -377,27 +365,27 @@
 
       <div class="awards">
         <div class="award" data-reveal>
-          <span class="award-tag">Fellowship</span>
+          <span class="award-tag" data-tag="fellowship">Fellowship</span>
           <h3>EuroTech Fellow</h3>
           <p class="muted">Top 1% EU tech talent.</p>
         </div>
         <div class="award" data-reveal>
-          <span class="award-tag">Hackathon</span>
+          <span class="award-tag" data-tag="hackathon">Hackathon</span>
           <h3>1st / 180 — GenAI Hack (AWS · NVIDIA)</h3>
           <p class="muted">Multimodal RAG geo-risk platform — sold for €50K, impact on €40B ESG assets.</p>
         </div>
         <div class="award" data-reveal>
-          <span class="award-tag">Web3</span>
+          <span class="award-tag" data-tag="web3">Web3</span>
           <h3>1st / 400 VC · 3rd / 400 jury — EU Web3 Hackathon</h3>
           <p class="muted">€100K pool · €500K backing.</p>
         </div>
         <div class="award" data-reveal>
-          <span class="award-tag">AI</span>
+          <span class="award-tag" data-tag="ai">AI</span>
           <h3>1st / 450 — Stanford XAI for Airspace Security (solo)</h3>
           <p class="muted">3rd / 50 — Microsoft Agentic · 3rd / 260 — DeepMind Agentic for Cybersecurity.</p>
         </div>
         <div class="award" data-reveal>
-          <span class="award-tag">Math</span>
+          <span class="award-tag" data-tag="math">Math</span>
           <h3>2nd — National Mathematics Olympiad</h3>
           <p class="muted">Merit scholarship of €3 000 (2022).</p>
         </div>
