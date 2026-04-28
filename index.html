@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" />
+  <title>Adrien Scazzola — Research · Operate · Shape</title>
+  <meta name="description" content="Adrien Scazzola — MSc CS & Cybersecurity. AI security, Web3, robotics. Tech builder turning ideas into impact." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+
+  <!-- Animated aurora background (pure CSS, GPU-friendly) -->
+  <div class="aurora" aria-hidden="true">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+    <div class="grain"></div>
+  </div>
+
+  <!-- Glassmorphic top nav -->
+  <header class="nav liquid-glass" id="nav">
+    <a class="nav-brand" href="#top" aria-label="Home">
+      <span class="dot"></span>
+      <span class="brand-text">Adrien<span class="muted">.Scazzola</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#awards">Awards</a>
+      <a href="#skills">Skills</a>
+    </nav>
+    <a class="nav-cta liquid-glass" href="mailto:adrien.scazzola01@gmail.com">
+      <span>Contact</span>
+      <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </header>
+
+  <!-- =================== HERO / OVERVIEW (one-glance) =================== -->
+  <main id="top">
+    <section class="hero hero-with-video">
+
+      <!-- Full-bleed background video — plays once, freezes on last frame -->
+      <video
+        id="heroVideo"
+        class="hero-bg-video"
+        muted
+        playsinline
+        autoplay
+        preload="auto"
+        aria-hidden="true"
+      >
+        <source src="./assets/hero.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-bg-overlay" aria-hidden="true"></div>
+
+      <div class="hero-text">
+        <div class="hero-meta" data-reveal>
+          <span class="pulse"></span>
+          <span>Open to <strong>Internship 2027</strong> · Available worldwide</span>
+        </div>
+
+        <h1 class="hero-title hero-greeting" aria-label="Hi, I'm Adrien Scazzola">
+          <span class="g-line">
+            <span class="g-word" style="--i:0">Hi,</span>
+            <span class="g-word" style="--i:1">I&rsquo;m</span>
+          </span>
+          <span class="g-line g-name">
+            <span class="g-word" style="--i:2">Adrien</span>
+            <span class="g-word g-italic" style="--i:3">Scazzola.</span>
+          </span>
+          <span class="g-cursor" aria-hidden="true"></span>
+        </h1>
+
+        <p class="hero-sub" data-reveal>
+          MSc Computer Science &amp; Cybersecurity at ESILV (GPA&nbsp;3.85, ranked&nbsp;#2).
+          I work at the intersection of <span class="hl">AI security</span>,
+          <span class="hl">Web3</span> and <span class="hl">robotics&nbsp;/&nbsp;UAV</span>
+          — turning ideas into shipped systems.
+        </p>
+
+        <div class="hero-cta" data-reveal>
+          <a href="#experience" class="btn liquid-glass btn-primary">
+            <span>Explore my work</span>
+            <svg viewBox="0 0 16 16" width="14" height="14"><path d="M8 3v10M4 9l4 4 4-4" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="https://github.com/speedy27" target="_blank" rel="noopener" class="btn-link">GitHub ↗</a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="btn-link">LinkedIn ↗</a>
+        </div>
+      </div>
+
+      <!-- Quick-glance KPI strip -->
+      <ul class="kpi" aria-label="Highlights">
+        <li class="kpi-card" data-reveal>
+          <span class="kpi-num" data-count="4">0</span><span class="kpi-suf">M+</span>
+          <span class="kpi-lbl">TVL — PiggyBank.fi (Solana)</span>
+        </li>
+        <li class="kpi-card" data-reveal>
+          <span class="kpi-num" data-count="27">0</span><span class="kpi-suf">k</span>
+          <span class="kpi-lbl">Employees scaled at Thales</span>
+        </li>
+        <li class="kpi-card" data-reveal>
+          <span class="kpi-num" data-count="6">0</span><span class="kpi-suf">×</span>
+          <span class="kpi-lbl">Hackathon &amp; research wins</span>
+        </li>
+        <li class="kpi-card" data-reveal>
+          <span class="kpi-num" data-count="1">0</span><span class="kpi-suf">%</span>
+          <span class="kpi-lbl">EuroTech Fellow — top EU talent</span>
+        </li>
+      </ul>
+
+      <!-- Scroll hint -->
+      <div class="scroll-hint" aria-hidden="true">
+        <span>Scroll</span>
+        <span class="line-down"></span>
+      </div>
+    </section>
+
+    <!-- =================== EXPERIENCE =================== -->
+    <section class="section" id="experience">
+      <header class="section-head">
+        <span class="eyebrow" data-reveal>01 / Experience</span>
+        <h2 class="section-title" data-reveal>Where I&rsquo;ve been<br/><span class="muted">building &amp; shipping.</span></h2>
+      </header>
+
+      <!--
+        EXPERIENCE LIST — non-card format with company-logo slots.
+        To plug a real logo, drop the file in ./assets/logos/ and replace
+        <span class="logo-fallback">M</span> with:
+            <img src="./assets/logos/microsoft.svg" alt="Microsoft" />
+        (the .exp-logo container handles size/shape automatically)
+      -->
+      <ol class="exp-list">
+
+        <li class="exp-row" data-reveal>
+          <div class="exp-logo" aria-hidden="true">
+            <!-- <img src="./assets/logos/microsoft.svg" alt="" /> -->
+            <span class="logo-fallback" data-color="ms">M</span>
+          </div>
+          <div class="exp-meta">
+            <span class="exp-date">Aug 2025 → Dec 2025</span>
+            <span class="exp-loc">France · On-site</span>
+          </div>
+          <div class="exp-content">
+            <h3 class="exp-role">CS Architect — Security &amp; AI <span class="exp-company">· Microsoft</span></h3>
+            <p>Co-created the <strong>AI Security V-Team France</strong>. Analyzed adversarial attack vectors on <strong>LLM inference pipelines</strong>, drafted MCP token-allocation optimization (collab. GBB / OpenAI), and engineered <strong>Agentic AI-augmented</strong> attack security for CSU threat-intel workflows. Authored reusable <strong>IaC Lab (Terraform)</strong>.</p>
+            <div class="tags"><span>LLM Security</span><span>MCP</span><span>Agentic AI</span><span>Terraform</span></div>
+          </div>
+          <span class="exp-arrow" aria-hidden="true">↗</span>
+        </li>
+
+        <li class="exp-row" data-reveal>
+          <div class="exp-logo" aria-hidden="true">
+            <!-- <img src="./assets/logos/piggybank.svg" alt="" /> -->
+            <span class="logo-fallback" data-color="pb">P</span>
+          </div>
+          <div class="exp-meta">
+            <span class="exp-date">Aug 2025 → Dec 2025</span>
+            <span class="exp-loc">Solana · DeFi</span>
+          </div>
+          <div class="exp-content">
+            <h3 class="exp-role">Co-Founder &amp; CTO <span class="exp-company">· PiggyBank.fi</span></h3>
+            <p>Tokenized-stocks platform with <strong>~$4M+ TVL</strong>. Led full-stack DeFi (API, web, mobile) with atomic-safety <em>delta-neutral</em> strategies and optimized RPC pipelines for low-latency on-chain execution. Partners: Hylo, ex-Rothschild.</p>
+            <div class="tags"><span>Solana</span><span>DeFi</span><span>Full-stack</span><span>RPC</span></div>
+          </div>
+          <span class="exp-arrow" aria-hidden="true">↗</span>
+        </li>
+
+        <li class="exp-row" data-reveal>
+          <div class="exp-logo" aria-hidden="true">
+            <!-- <img src="./assets/logos/thales.svg" alt="" /> -->
+            <span class="logo-fallback" data-color="th">T</span>
+          </div>
+          <div class="exp-meta">
+            <span class="exp-date">Sept 2024 → Aug 2025</span>
+            <span class="exp-loc">Thales IS/IT · DSI</span>
+          </div>
+          <div class="exp-content">
+            <h3 class="exp-role">Apprentice Solution &amp; Software Engineer <span class="exp-company">· Thales</span></h3>
+            <p>Designed &amp; deployed a <strong>defense-compliant service scaling to ~27 000 employees</strong> worldwide. Coordinated UK / Asia / Europe teams on Defense-France scope, migrated <strong>200+ ITSM records</strong> and reported strategic alignment to the Defense-France <strong>ComEx</strong>.</p>
+            <div class="tags"><span>Defense</span><span>ITSM</span><span>Cross-region</span></div>
+          </div>
+          <span class="exp-arrow" aria-hidden="true">↗</span>
+        </li>
+
+        <li class="exp-row" data-reveal>
+          <div class="exp-logo" aria-hidden="true">
+            <!-- <img src="./assets/logos/stealth.svg" alt="" /> -->
+            <span class="logo-fallback" data-color="st">S</span>
+          </div>
+          <div class="exp-meta">
+            <span class="exp-date">Aug 2024 → Now</span>
+            <span class="exp-loc">Stealth · B2B</span>
+          </div>
+          <div class="exp-content">
+            <h3 class="exp-role">Founder — CEO + CTO <span class="exp-company">· Stealth Startup</span></h3>
+            <p>Modular full-stack architecture on <strong>GCP</strong> in Dart — <strong>−90% lead-time</strong>. Defined technical vision, user-first UX/UI, business model and GTM strategy. Drove the product from concept to a scalable version.</p>
+            <div class="tags"><span>GCP</span><span>Dart</span><span>UX</span><span>GTM</span></div>
+          </div>
+          <span class="exp-arrow" aria-hidden="true">↗</span>
+        </li>
+
+      </ol>
+    </section>
+
+    <!-- =================== RESEARCH & PROJECTS =================== -->
+    <section class="section" id="projects">
+      <header class="section-head">
+        <span class="eyebrow" data-reveal>02 / Research &amp; Projects</span>
+        <h2 class="section-title" data-reveal>From paper to <span class="muted">prototype.</span></h2>
+        <p class="section-sub muted" data-reveal>Hover (or tap on mobile) to reveal details.</p>
+      </header>
+
+      <!--
+        PROJECT CARDS
+        ============================================================
+        Each .project-card has:
+          - A .card-media block (image OR themed gradient fallback)
+          - Always-visible top label + bottom title
+          - A .card-reveal block that slides up on hover (desktop) /
+            on tap-toggle (mobile via .is-active class added by JS)
+        To plug a real image, drop it in ./assets/projects/ and add:
+            <img src="./assets/projects/voice.jpg" alt="" />
+        inside the matching .card-media (the gradient fallback stays
+        underneath in case the image is missing).
+        ============================================================
+      -->
+      <div class="grid grid-proj">
+
+        <article class="card project-card span-2" data-reveal data-theme="audio" tabindex="0" aria-label="Real-Time Gestural Control of Vocal Synthesis">
+          <div class="card-media">
+            <!-- <img src="./assets/projects/voice.jpg" alt="" /> -->
+          </div>
+          <div class="card-overlay"></div>
+          <div class="card-shell">
+            <div class="card-top"><span>Research Engineer</span><span>IFT × MIT Lab — Sept&nbsp;2025 → Now</span></div>
+            <div class="card-foot">
+              <h3>Real-Time Gestural Control of Vocal Synthesis</h3>
+              <div class="card-reveal">
+                <p class="muted">HCI &amp; AI · Paper accepted at <strong>NIME&nbsp;26th</strong> · Supervisor: Xiao Xiao</p>
+                <ul>
+                  <li>Real-time audio pipeline integrating <strong>articulatory synthesis (Pink Trombone)</strong> and psychoacoustic mapping.</li>
+                  <li>AudioWorklets + DSP, React / Node.js algorithmic layer.</li>
+                  <li>Collab with <strong>LPP Sorbonne Nouvelle</strong>.</li>
+                </ul>
+                <div class="tags"><span>HCI</span><span>DSP</span><span>AudioWorklets</span><span>React</span></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card project-card" data-reveal data-theme="vision" tabindex="0" aria-label="Def-Tech Research Federation">
+          <div class="card-media">
+            <!-- <img src="./assets/projects/proteus.jpg" alt="" /> -->
+          </div>
+          <div class="card-overlay"></div>
+          <div class="card-shell">
+            <div class="card-top"><span>Co-Founder &amp; CEO</span><span>Proteus Group — Jan&nbsp;2025</span></div>
+            <div class="card-foot">
+              <h3>Def-Tech Research Federation <span class="badge">#1 in EU</span></h3>
+              <div class="card-reveal">
+                <ul>
+                  <li><strong>YOLOv11</strong> computer vision, post-training optimization, motion tracking, motor control.</li>
+                  <li>Represented at AI Week S &amp; government ministries meetups.</li>
+                  <li>Built the <strong>ENS SUP Defense</strong> program; led cross-functional teams.</li>
+                </ul>
+                <div class="tags"><span>YOLOv11</span><span>Robotics</span><span>Leadership</span></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card project-card" data-reveal data-theme="uav" tabindex="0" aria-label="High-speed FPV UAV and VTOL">
+          <div class="card-media">
+            <!-- <img src="./assets/projects/uav.jpg" alt="" /> -->
+          </div>
+          <div class="card-overlay"></div>
+          <div class="card-shell">
+            <div class="card-top"><span>UAV &amp; Rocketry</span><span>Personal — Mar&nbsp;2026</span></div>
+            <div class="card-foot">
+              <h3>High-speed FPV UAV &amp; VTOL with embedded AI</h3>
+              <div class="card-reveal">
+                <ul>
+                  <li><strong>ROS&nbsp;2</strong> flight simulation &amp; control on PX4 / ArduPilot / Gazebo.</li>
+                  <li>3D-printed FPV (~<strong>400&nbsp;km/h</strong>, 8S propulsion, vision-based tracking).</li>
+                  <li>VTOL platform with on-board inference.</li>
+                </ul>
+                <div class="tags"><span>ROS2</span><span>PX4</span><span>Edge AI</span></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card project-card span-2" data-reveal data-theme="assoc" tabindex="0" aria-label="Associative projects">
+          <div class="card-media">
+            <!-- <img src="./assets/projects/hydrov.jpg" alt="" /> -->
+          </div>
+          <div class="card-overlay"></div>
+          <div class="card-shell">
+            <div class="card-top"><span>Associative</span><span>2024 → Now</span></div>
+            <div class="card-foot">
+              <h3>Kryptosphere · Unaite · HydroV</h3>
+              <div class="card-reveal">
+                <ul>
+                  <li><strong>SWE / AI / FinTech</strong> contributions; Disability Referent.</li>
+                  <li><strong>HydroV</strong>: hydrogen-boat world competition build.</li>
+                  <li>Continuous learning: Google ACE AI, Microsoft AZ/SC/ML, CS50PI, Andrew Ng, Karpathy NN, MIT 18.06.</li>
+                </ul>
+                <div class="tags"><span>FinTech</span><span>Hydrogen</span><span>Open-source</span></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- =================== EDUCATION =================== -->
+    <section class="section" id="education">
+      <header class="section-head">
+        <span class="eyebrow" data-reveal>03 / Education</span>
+        <h2 class="section-title" data-reveal>Foundations <span class="muted">in math, CS &amp; security.</span></h2>
+      </header>
+
+      <ol class="timeline">
+        <li data-reveal>
+          <span class="t-date">May 2027</span>
+          <div class="t-body">
+            <h3>ESILV — MSc Computer Science &amp; Cybersecurity</h3>
+            <p class="muted">GPA <strong>3.85</strong> · Ranked <strong>#2</strong> in cohort · Défense, France</p>
+            <p>Distributed Systems · Cryptography · Stochastic Processes · Optimization &amp; Graph Theory · ML / NLP · Linear Algebra · Algorithms.</p>
+          </div>
+        </li>
+        <li data-reveal>
+          <span class="t-date">2022 — 2023</span>
+          <div class="t-body">
+            <h3>Paris-Cité University — B.Sc Math &amp; CS (dual)</h3>
+            <p class="muted">Top <strong>13%</strong> of cohort · World-ranked <strong>#19</strong> in maths</p>
+            <p>Discrete Maths · Graph Theory · Computational Complexity · Algorithmic Problem-Solving · OOP · Physics.</p>
+          </div>
+        </li>
+        <li data-reveal>
+          <span class="t-date">2019 — 2022</span>
+          <div class="t-body">
+            <h3>Maurice Genevoix — High School, Scientific Track</h3>
+            <p class="muted">With distinction · <strong>101.5 / 120</strong> · Top 1% · merit scholarship €3 000</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- =================== AWARDS =================== -->
+    <section class="section" id="awards">
+      <header class="section-head">
+        <span class="eyebrow" data-reveal>04 / Awards</span>
+        <h2 class="section-title" data-reveal>Selected <span class="muted">recognitions.</span></h2>
+      </header>
+
+      <div class="awards">
+        <div class="award" data-reveal>
+          <span class="award-tag">Fellowship</span>
+          <h3>EuroTech Fellow</h3>
+          <p class="muted">Top 1% EU tech talent.</p>
+        </div>
+        <div class="award" data-reveal>
+          <span class="award-tag">Hackathon</span>
+          <h3>1st / 180 — GenAI Hack (AWS · NVIDIA)</h3>
+          <p class="muted">Multimodal RAG geo-risk platform — sold for €50K, impact on €40B ESG assets.</p>
+        </div>
+        <div class="award" data-reveal>
+          <span class="award-tag">Web3</span>
+          <h3>1st / 400 VC · 3rd / 400 jury — EU Web3 Hackathon</h3>
+          <p class="muted">€100K pool · €500K backing.</p>
+        </div>
+        <div class="award" data-reveal>
+          <span class="award-tag">AI</span>
+          <h3>1st / 450 — Stanford XAI for Airspace Security (solo)</h3>
+          <p class="muted">3rd / 50 — Microsoft Agentic · 3rd / 260 — DeepMind Agentic for Cybersecurity.</p>
+        </div>
+        <div class="award" data-reveal>
+          <span class="award-tag">Math</span>
+          <h3>2nd — National Mathematics Olympiad</h3>
+          <p class="muted">Merit scholarship of €3 000 (2022).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== SKILLS =================== -->
+    <section class="section" id="skills">
+      <header class="section-head">
+        <span class="eyebrow" data-reveal>05 / Skills</span>
+        <h2 class="section-title" data-reveal>The <span class="muted">stack.</span></h2>
+      </header>
+
+      <div class="skills">
+        <div class="skill-col" data-reveal>
+          <h4>Programming</h4>
+          <p>Python · Java · C++ · Dart · Solidity · TypeScript</p>
+        </div>
+        <div class="skill-col" data-reveal>
+          <h4>AI / ML</h4>
+          <p>PyTorch · TensorFlow · scikit-learn · Vector DBs · RAG · MCP · NLP · Deep Learning · RL · ROS&nbsp;2</p>
+        </div>
+        <div class="skill-col" data-reveal>
+          <h4>Cloud &amp; DevOps</h4>
+          <p>Kubernetes · Git · GCP · Azure · Terraform</p>
+        </div>
+        <div class="skill-col" data-reveal>
+          <h4>Web3</h4>
+          <p>DeFi · Web3.js · Solidity · Solana · ZKP · dApps</p>
+        </div>
+        <div class="skill-col" data-reveal>
+          <h4>Security</h4>
+          <p>Kali Linux · Bash · LLM red-teaming · Threat intel · IaC security</p>
+        </div>
+        <div class="skill-col" data-reveal>
+          <h4>Languages</h4>
+          <p>French (native) · English (fluent) · Italian (beginner)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================== CONTACT =================== -->
+    <section class="section section-contact" id="contact">
+      <div class="contact-card liquid-glass" data-reveal>
+        <span class="eyebrow">Let&rsquo;s build</span>
+        <h2>Looking for a 2027 internship to push the boundary further.</h2>
+        <p class="muted">AI security · Agentic systems · Robotics · Web3. Open to relocation worldwide.</p>
+        <div class="contact-actions">
+          <a class="btn liquid-glass btn-primary" href="mailto:adrien.scazzola01@gmail.com">adrien.scazzola01@gmail.com</a>
+          <a class="btn-link" href="tel:+33783652833">+33&nbsp;7&nbsp;83&nbsp;65&nbsp;28&nbsp;33</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>© <span id="year"></span> Adrien Scazzola.</span>
+      <span class="muted">Built with HTML, CSS &amp; a bit of motion.</span>
+    </footer>
+  </main>
+
+  <script src="./script.js" defer></script>
+</body>
+</html>

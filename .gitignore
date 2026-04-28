@@ -1,0 +1,51 @@
+# Documentation
+README.md
+readme.md
+README.txt
+CHANGELOG.md
+CONTRIBUTING.md
+LICENSE
+LICENSE.md
+*.md
+
+# Dev config files
+.env
+.env.*
+.vscode/
+.idea/
+*.code-workspace
+
+# Package managers
+node_modules/
+package.json
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Build tools config
+webpack.config.js
+vite.config.js
+rollup.config.js
+gulpfile.js
+Gruntfile.js
+.babelrc
+.eslintrc*
+.prettierrc*
+tsconfig.json
+jest.config.*
+
+# Source maps (optional, keep if you want)
+*.map
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Git
+.git/
+
+# Misc
+*.log
+*.tmp
+*.bak
